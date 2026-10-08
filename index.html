@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        .header {
+            background: #163a63;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .header h1 {
+            margin: 0 0 8px;
+            font-size: 30px;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 750px;
+            margin: 35px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        h2 {
+            text-align: center;
+            color: #163a63;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .rating {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .rating label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin: 0;
+        }
+
+        .rating input {
+            width: auto;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 13px;
+            background: #163a63;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #0f2b4a;
+        }
+
+        #message {
+            display: none;
+            margin-top: 20px;
+            padding: 12px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>VIT Vellore</h1>
+        <p>Student Feedback Web Application</p>
+    </div>
+
+    <div class="container">
+
+        <h2>Course Feedback Form</h2>
+
+        <form id="feedbackForm">
+
+            <div class="form-group">
+                <label for="course">Course Name</label>
+                <select id="course" required>
+                    <option value="">Select Course</option>
+                    <option>Software Engineering</option>
+                    <option>Cloud Computing</option>
+                    <option>Artificial Intelligence</option>
+                    <option>Database Management Systems</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="faculty">Faculty Name</label>
+                <input type="text" id="faculty"
+                       placeholder="Enter faculty name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="student">Student Name</label>
+                <input type="text" id="student"
+                       placeholder="Enter student name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="regno">Register Number</label>
+                <input type="text" id="regno"
+                       placeholder="Enter register number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="department">Department</label>
+                <input type="text" id="department"
+                       placeholder="Enter department" required>
+            </div>
+
+            <div class="form-group">
+                <label>Rating</label>
+
+                <div class="rating">
+                    <label>
+                        <input type="radio" name="rating" value="1" required>
+                        1 - Poor
+                    </label>
+
+                    <label>
+                        <input type="radio" name="rating" value="2">
+                        2 - Fair
+                    </label>
+
+                    <label>
+                        <input type="radio" name="rating" value="3">
+                        3 - Good
+                    </label>
+
+                    <label>
+                        <input type="radio" name="rating" value="4">
+                        4 - Very Good
+                    </label>
+
+                    <label>
+                        <input type="radio" name="rating" value="5">
+                        5 - Excellent
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Feedback / Comments</label>
+
+                <textarea id="comments"
+                    placeholder="Enter your feedback or comments..."
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Submit Feedback
+            </button>
+
+        </form>
+
+        <div id="message">
+            Thank you! Your feedback has been submitted successfully.
+        </div>
+
+    </div>
+
+    <footer>
+        VIT Vellore | Student Feedback System
+    </footer>
+
+    <script>
+        document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            document.getElementById("message").style.display = "block";
+
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
