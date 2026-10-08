@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: student-feedback
-          image: archanajawahar14/student-feedback:latest
+          image: archanajawahar14/student-feedback:v2
           ports:
             - containerPort: 80
 
